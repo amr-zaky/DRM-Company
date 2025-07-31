@@ -1,0 +1,81 @@
+image: openjdk:8
+
+pipelines:
+  pull-requests:
+    '**':
+      - step:
+          name: Analyze and Format
+          size: "2x"
+          image: ghcr.io/cirruslabs/flutter:3.16.5
+          script:
+            - flutter pub get
+            - dart fix --apply
+            - dart format .
+            - flutter analyze
+            - |
+              if [ -n "$(git status --porcelain)" ]; then
+                git add .
+                git commit -m "Apply formatting changes suggested by dart format"
+                git push  # Push changes to the branch
+              fi
+          after-script:
+            - |
+              if [ "$BITBUCKET_EXIT_CODE" != "0" ]; then
+                curl --request POST \
+                  --url 'https://api.bitbucket.org/2.0/repositories/'$BITBUCKET_REPO_FULL_NAME'/pullrequests/'$BITBUCKET_PR_ID'/decline' \
+                  --header 'Authorization: Bearer '$access_token'' \
+                  --header 'Accept: application/json'
+              fi
+
+  branches:
+    alpha:
+      - step:
+          name: Build for production
+          size: "2x"
+          image: ghcr.io/cirruslabs/flutter:3.16.5
+          trigger: automatic
+          script:
+            - flutter pub get
+            - flutter build apk --release --flavor production -t lib/main_production.dart
+          artifacts:
+              - build/app/outputs/flutter-apk/app-production-release.apk
+      - step:
+          name: Deploy to firebase app distribution
+          image: softartdev/android-fastlane
+          script:
+            # Change to the parent directory to access the artifact
+            - cd android
+            # Run Fastlane with the artifact path
+            - fastlane android firebase_deployment_production
+      - step:
+          name: Notify slack channel
+          script:
+            - curl -X POST -H 'Content-type:application/json' --data '{"text":"Deploy Production to firebase app distribution completed. Check the <https://bitbucket.org/'$BITBUCKET_REPO_FULL_NAME'/pipelines/results/'$BITBUCKET_BUILD_NUMBER'>"}' $slack_web_hook
+
+
+    test_develop:
+      - step:
+          name: Build for development
+          size: "2x"
+          image: ghcr.io/cirruslabs/flutter:3.16.5
+          trigger: automatic
+          script:
+            # Build APK for development
+            - flutter pub get
+            - flutter build apk --release --flavor development -t lib/main_development.dart
+          artifacts:
+            # Define the artifact path to be passed to the next step
+            - build/app/outputs/flutter-apk/app-development-release.apk
+      - step:
+          name: Deploy to firebase app distribution
+          image: softartdev/android-fastlane
+          script:
+            # Change to the parent directory to access the artifact
+            - cd android
+            # Run Fastlane with the artifact path
+            - fastlane android firebase_deployment_development
+      - step:
+          name: Notify slack channel
+          script:
+            - curl -X POST -H 'Content-type:application/json' --data '{"text":"Deploy Development to firebase app distribution completed. Check the <https://bitbucket.org/'$BITBUCKET_REPO_FULL_NAME'/pipelines/results/'$BITBUCKET_BUILD_NUMBER'>"}' $slack_web_hook
+
