@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "841818709964",
+    "project_id": "drm-account",
+    "storage_bucket": "drm-account.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841818709964:android:62860c98d185d0dfeec769",
+        "android_client_info": {
+          "package_name": "com.drm.customer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaaaZ2J5ySgAX1aMDMmn8csv17TbxzfFI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841818709964:android:910c6e8949642217eec769",
+        "android_client_info": {
+          "package_name": "com.drm.customer_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaaaZ2J5ySgAX1aMDMmn8csv17TbxzfFI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841818709964:android:086fea204b8e31c0eec769",
+        "android_client_info": {
+          "package_name": "com.drm.provider"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaaaZ2J5ySgAX1aMDMmn8csv17TbxzfFI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

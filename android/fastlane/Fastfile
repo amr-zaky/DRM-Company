@@ -1,0 +1,27 @@
+default_platform(:android)
+
+platform :android do
+  desc "Deploy to Firebase App Distribution (Development)"
+  lane :firebase_deployment_development do
+    firebase_app_distribution(
+      app: "1:986014078069:android:030bbde55d3bbfb3ca143c",
+      release_notes: "Lots of amazing new features to test out! ya rab tenga7 tanii",
+      firebase_cli_token: "1//03kwIjsZp2RjwCgYIARAAGAMSNwF-L9IrAZT6QdIH9G3fMF-8LsDyvudx0RudvUpEseDspY9YUfAjZ-DtuhO-9XQbdoW_LXU8o0o",
+      android_artifact_type: "APK",
+      android_artifact_path: "../build/app/outputs/flutter-apk/app-development-release.apk",
+      groups: "internal-tester, mobile-team"
+    )
+  end
+
+  desc "Deploy to Firebase App Distribution (Production)"
+  lane :firebase_deployment_production do
+    firebase_app_distribution(
+      app: "1:986014078069:android:030bbde55d3bbfb3ca143c",
+      release_notes: "Ready for production deployment!",
+      firebase_cli_token: "1//03kwIjsZp2RjwCgYIARAAGAMSNwF-L9IrAZT6QdIH9G3fMF-8LsDyvudx0RudvUpEseDspY9YUfAjZ-DtuhO-9XQbdoW_LXU8o0o",
+      android_artifact_type: "APK",
+      android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
+      groups: "internal-tester, mobile-team"
+    )
+  end
+end
