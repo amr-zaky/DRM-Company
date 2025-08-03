@@ -1,5 +1,6 @@
 
 
+import 'package:base_project_repo/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -28,12 +29,16 @@ class FirebaseService {
   }
 
   static Future<FirebaseApp> initializeNotificationApp() async {
-    return Firebase.initializeApp();
+    return Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+
+    );
   }
 
   /// Get Device Token
   static void getDeviceToken() {
     messaging!.getToken().then((String? value) {
+      print("this the device token: $value");
       SharedText.deviceToken = value!;
     });
   }
