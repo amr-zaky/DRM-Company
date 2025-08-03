@@ -94,6 +94,7 @@ dependencies:
   firebase_messaging: ^15.1.6
 
   overlay_support: ^2.1.0
+  flutter_local_notifications: ^17.2.2
 
   lottie: ^2.2.0
 
