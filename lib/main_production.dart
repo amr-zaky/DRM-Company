@@ -14,6 +14,7 @@ void main() async {
   SharedPrefs.init();
   await di.init();
   await FirebaseService.initializeNotificationApp();
+  FirebaseService.initializeAllNotificationServices();
 
   Bloc.observer = MyBlocObserver();
   SystemChrome.setSystemUIOverlayStyle(
