@@ -2,6 +2,7 @@ import UIKit
 import Flutter
 import GoogleMaps
 import UserNotifications
+import Firebase
 
 @main
 @objc class AppDelegate: FlutterAppDelegate {
@@ -11,8 +12,12 @@ import UserNotifications
   ) -> Bool {
     GMSServices.provideAPIKey("AIzaSyDdCKbWxRcIdU1_L4Ckwl_40OgOfNs7AoQ")
     
-    // Configure notifications
+    // Configure Firebase and notifications
+    FirebaseApp.configure()
     configureNotifications()
+    
+    // Request notification permissions
+    requestNotificationPermissions()
     
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -36,11 +41,23 @@ import UserNotifications
     )
     
     UNUserNotificationCenter.current().setNotificationCategories([customCategory])
+    
+    // Set messaging delegate
+    Messaging.messaging().delegate = self
   }
-}
+  
+  private func requestNotificationPermissions() {
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+      print("Notification permission granted: \(granted)")
+      if let error = error {
+        print("Notification permission error: \(error)")
+      }
+    }
+    
+    UIApplication.shared.registerForRemoteNotifications()
+  }
 
-// MARK: - UNUserNotificationCenterDelegate
-extension AppDelegate: UNUserNotificationCenterDelegate {
+  // MARK: - UNUserNotificationCenterDelegate Methods
   // Handle notifications when app is in foreground
   override func userNotificationCenter(
     _ center: UNUserNotificationCenter,
@@ -57,5 +74,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     withCompletionHandler completionHandler: @escaping () -> Void
   ) {
     completionHandler()
+  }
+}
+
+// MARK: - MessagingDelegate
+extension AppDelegate: MessagingDelegate {
+  func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+    print("Firebase registration token: \(String(describing: fcmToken))")
   }
 }
