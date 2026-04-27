@@ -4,7 +4,6 @@ import 'package:base_project_repo/core/presentation/widgets/common_asset_image_w
 import 'package:base_project_repo/core/presentation/widgets/common_asset_svg_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
@@ -61,12 +60,12 @@ class _SplashPageState extends State<SplashHomePage>
         listener: (BuildContext splashCtx, SplashStates splashState) {
           if (splashState is UserFoundState) {
             Timer(
-                const Duration(milliseconds: 2500),
+                const Duration(milliseconds: 9200),
                 () => context
                     .pushReplacementNamed(RouteNames.mainBottomNavPageRoute));
           } else if (splashState is UserNotFoundState) {
             Timer(
-                const Duration(milliseconds: 2500),
+                const Duration(milliseconds: 9200),
                 () => context.pushReplacementNamed(
                     RouteNames.onBoardingPageRoute,
                     extra: RouteArgument(
@@ -77,7 +76,10 @@ class _SplashPageState extends State<SplashHomePage>
           return Container(
             height: MediaQuery.of(context).size.height,
             alignment: Alignment.center,
-            child: Lottie.asset('assets/images/Drm_splash.json',),
+            child: Image.asset(
+              'assets/images/rdm_customer.gif',
+              fit: BoxFit.contain,
+            ),
           );
         },
       ),

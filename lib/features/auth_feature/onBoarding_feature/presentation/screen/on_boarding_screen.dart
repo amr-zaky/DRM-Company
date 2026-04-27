@@ -1,7 +1,7 @@
 import 'package:base_project_repo/core/presentation/widgets/common_asset_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../../../generated/app_localizations.dart';
 
 import '../../../../language_feature/presentation/logic/language_cubit/language_cubit.dart';
 import '../logic/on_boarding_cubit/on_boarding_cubit.dart';
@@ -111,7 +111,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                               OnBoardingPageItem(
                                   pageImage: IconPath.onBoarding3Icon,
                                   title: AppLocalizations.of(context)!
-                                      .lblWelcomeInDRM,
+                                      .lblWelcomeInRDM,
                                   subTitle: AppLocalizations.of(context)!
                                       .lblOnBoardingSub1),
                               OnBoardingPageItem(

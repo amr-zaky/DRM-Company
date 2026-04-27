@@ -8,7 +8,7 @@ import 'package:base_project_repo/features/order_feature/presentation/logic/crea
 import 'package:base_project_repo/features/order_feature/presentation/logic/create_order_cubit/create_order_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../../../generated/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import '/core/constants/app_constants.dart';
 import '/core/helpers/shared.dart';

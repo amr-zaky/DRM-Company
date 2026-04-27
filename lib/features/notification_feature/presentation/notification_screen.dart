@@ -1,7 +1,7 @@
 import 'package:base_project_repo/core/presentation/widgets/common_asset_svg_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../../../generated/app_localizations.dart';
 
 import '/core/constants/app_constants.dart';
 import '/core/constants/enums/exception_enums.dart';

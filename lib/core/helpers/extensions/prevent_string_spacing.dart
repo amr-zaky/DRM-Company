@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../../../generated/app_localizations.dart';
 
 extension GetStringWithoutSpacings on String {
   String getStringWithoutSpacings() {

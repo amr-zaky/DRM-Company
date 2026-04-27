@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../../../generated/app_localizations.dart';
 
 import '../../../../core/constants/app_constants.dart';
 import '../../../../core/helpers/extensions/format_date_time_to_time_only.dart';

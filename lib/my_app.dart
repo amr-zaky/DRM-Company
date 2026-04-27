@@ -2,7 +2,7 @@ import 'package:base_project_repo/core/data_source/network/dio_map_helper.dart';
 import 'package:base_project_repo/core/helpers/responsive_ui/device_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../../../generated/app_localizations.dart';
 import 'package:overlay_support/overlay_support.dart';
 
 import 'core/constants/theme/app_theme.dart';

@@ -1,5 +1,5 @@
 import 'dart:ui';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../../../generated/app_localizations.dart';
 
 import '../../../../core/helpers/shared_texts.dart';
 import '../interface/lang_interface.dart';

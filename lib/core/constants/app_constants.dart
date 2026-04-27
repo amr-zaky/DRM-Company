@@ -8,7 +8,7 @@ class AppConstants {
   static const Color borderInputColor = Color(0xFFAFB0B6);
   static const Color lightBlackColor = Color(0xFF000000);
   static const Color successColor = Color(0xff30DE78);
-  static const Color greenColor = Color(0xff118C46);
+  static const Color greenColor = Color(0xFFB51919);
   static const Color lightGreyColor = Color(0xffDADADA);
   static const Color backBGColor = Color(0xFFFEFAFA);
 
@@ -19,16 +19,18 @@ class AppConstants {
   static const Color lightRedColor = Color(0xFFBF0000);
   static const Color appBarTitleColor = Color(0xff082640);
   static const Color lightOffRedColor = Color(0xFFBC3A59);
-  static const Color circleProgressTextColor = Color(0xFF027437);
-  static const Color greenTextColor = Color(0xFF17A68C);
+  static const Color circleProgressTextColor = Color(0xFFEA4E4E);
+  static const Color greenTextColor = Color(0xFF0F3483);
   static const Color greyTextColor = Color(0xFFE2E3E3);
 
   static const Color greyColor = Color(0xffA8A8A8);
   static const Color transparent = Colors.transparent;
   static const Color lightGrayOffTwoColor = Color(0xFFE6E6E6);
+  static const Color splashColor = Color(0xFFFDFDFD);
 
   static const Color shadowColor = Color(0x18000000);
   static const Color dividerColor = Color(0x1F1F1F26);
+  static const Color yellowColor = Color(0xFFFFC107);
 
   static Color fetchUnReadCheckColor(bool isMe) =>
       isMe ? lightGreyColor : lightGrayBackgroundColor;

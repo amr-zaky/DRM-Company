@@ -44,7 +44,7 @@ class IconPath {
   static const String containersIcon = "containers.svg";
   static const String containerIcon = "container.svg";
   static const String orderIcon = "order.svg";
-  static const String drmIcon = "drm.svg";
+  static const String rdmIcon = "drm.svg";
   static const String moneyIcon = "money.svg";
   static const String locationIcon = "location.svg";
   static const String wrongIcon = "wronge.svg";

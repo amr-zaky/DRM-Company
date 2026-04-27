@@ -18,46 +18,66 @@ class AddressWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(AppConstants.padding8),
-      decoration: BoxDecoration(
-        color: AppConstants.lightWhiteColor,
-        borderRadius: BorderRadius.circular(
-          AppConstants.borderRadius8,
-        ),
-        boxShadow: const <BoxShadow>[
-          BoxShadow(
-            color: AppConstants.shadowColor,
-            blurRadius: 4,
-          ),
-        ],
-      ),
+      padding: const EdgeInsets.all(AppConstants.padding8),
+      decoration: _cardDecoration(),
       child: Column(
         children: [
-          Row(
-            children: [
-              CommonTitleText(
-                textKey: addressModel.name ?? "---",
-                textColor: AppConstants.greenColor,
-                textFontSize: AppConstants.fontSize14,
-              ),
-            ],
-          ),
+          _buildAddressName(),
           getSpaceHeight(AppConstants.padding8),
-          Row(
-            children: [
-              CommonAssetSvgImageWidget(
-                  imageString: IconPath.locationIcon, height: 16, width: 16),
-              getSpaceWidth(AppConstants.padding4),
-              CommonTitleText(
-                textKey: addressModel.location ?? "---",
-
-                textColor: AppConstants.lightGrayOffColor,
-                textFontSize: AppConstants.fontSize10,
-              ),
-            ],
-          )
+          _buildAddressLocation(),
         ],
       ),
+    );
+  }
+
+
+  BoxDecoration _cardDecoration() {
+    return BoxDecoration(
+      color: AppConstants.lightWhiteColor,
+      borderRadius: BorderRadius.circular(AppConstants.borderRadius8),
+      boxShadow: const <BoxShadow>[
+        BoxShadow(color: AppConstants.shadowColor, blurRadius: 4),
+      ],
+    );
+  }
+
+
+  Widget _buildAddressName() {
+    return Row(
+      children: [
+        Flexible(
+          child: CommonTitleText(
+            textKey: addressModel.name ?? "---",
+            textColor: AppConstants.greenColor,
+            textFontSize: AppConstants.fontSize14,
+            minTextFontSize: AppConstants.fontSize14,
+            textOverflow: TextOverflow.ellipsis,
+          ),
+        ),
+      ],
+    );
+  }
+
+
+  Widget _buildAddressLocation() {
+    return Row(
+      children: [
+        const CommonAssetSvgImageWidget(
+          imageString: IconPath.locationIcon,
+          height: 16,
+          width: 16,
+        ),
+        getSpaceWidth(AppConstants.padding4),
+        Flexible(
+          child: CommonTitleText(
+            textKey: addressModel.location ?? "---",
+            textColor: AppConstants.lightGrayOffColor,
+            textFontSize: AppConstants.fontSize10,
+            textOverflow: TextOverflow.ellipsis,
+            minTextFontSize: AppConstants.fontSize10,
+          ),
+        ),
+      ],
     );
   }
 }

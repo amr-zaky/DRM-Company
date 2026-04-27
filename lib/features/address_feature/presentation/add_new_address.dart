@@ -12,7 +12,7 @@ import 'package:base_project_repo/features/pick_location_feature/presentation/lo
 import 'package:base_project_repo/features/pick_location_feature/presentation/widget/map_search_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../../../generated/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '/core/constants/app_constants.dart';
