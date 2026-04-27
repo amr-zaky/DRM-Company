@@ -60,12 +60,12 @@ class _SplashPageState extends State<SplashHomePage>
         listener: (BuildContext splashCtx, SplashStates splashState) {
           if (splashState is UserFoundState) {
             Timer(
-                const Duration(milliseconds: 9200),
+                const Duration(milliseconds: 9500),
                 () => context
                     .pushReplacementNamed(RouteNames.mainBottomNavPageRoute));
           } else if (splashState is UserNotFoundState) {
             Timer(
-                const Duration(milliseconds: 9200),
+                const Duration(milliseconds: 9500),
                 () => context.pushReplacementNamed(
                     RouteNames.onBoardingPageRoute,
                     extra: RouteArgument(
