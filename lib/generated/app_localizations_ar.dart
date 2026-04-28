@@ -504,12 +504,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get lblWelcomeInRDM => 'مرحبًا بك في RDM';
 
   @override
-  String get lblOnBoardingSub1 =>
-      'نساعدك في الوصول لحاويات\nلمساعدتك في نقل اغراضك بسهولة';
+  String get lblOnBoardingSub1 => 'نساعدك في الوصول لعربيات النقل';
 
   @override
   String get lblOnBoardingSub2 =>
-      'كل ما عليك فعلة تحديد موقعك و سوف تجد الحاوية المناسبة لاغراضك';
+      'كل ما عليك فعله تحديد موقعك واختيار العربية المناسبه ';
 
   @override
   String get lblOnBoardingSub3 => 'سوف يتواصل معك مقدمي خدماتنا\nفي اسرع وقت';

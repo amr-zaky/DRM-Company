@@ -510,12 +510,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get lblWelcomeInRDM => 'Welcome in RDM';
 
   @override
-  String get lblOnBoardingSub1 =>
-      'We help you reach containers \n to help you move your belongings easily.';
+  String get lblOnBoardingSub1 => 'We help you find the right truck';
 
   @override
   String get lblOnBoardingSub2 =>
-      'All you have to do is specify your location \n and you will find the right container for your needs.';
+      'All you need to do is set your location and choose the truck type.';
 
   @override
   String get lblOnBoardingSub3 =>

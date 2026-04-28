@@ -1073,13 +1073,13 @@ abstract class AppLocalizations {
   /// No description provided for @lblOnBoardingSub1.
   ///
   /// In en, this message translates to:
-  /// **'We help you reach containers \n to help you move your belongings easily.'**
+  /// **'We help you find the right truck'**
   String get lblOnBoardingSub1;
 
   /// No description provided for @lblOnBoardingSub2.
   ///
   /// In en, this message translates to:
-  /// **'All you have to do is specify your location \n and you will find the right container for your needs.'**
+  /// **'All you need to do is set your location and choose the truck type.'**
   String get lblOnBoardingSub2;
 
   /// No description provided for @lblOnBoardingSub3.
